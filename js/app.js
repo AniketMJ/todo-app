@@ -75,7 +75,7 @@ new Sortable(todos, {
 // Checks whether the user has set the prefers-color-scheme or sessionStorage.theme
 // And adds/remove the class accordingly
 function toggleTheme() {
-    if (sessionStorage.theme === 'dark' || (!('theme' in sessionStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (sessionStorage.theme == 'dark' || (!('theme' in sessionStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
     } else {
         document.documentElement.classList.remove('dark')
