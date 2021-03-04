@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  #wrapper {
+    max-width: 1440px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .todoForm {
+    @apply relative bg-light-veryLightGray dark:bg-dark-veryDarkDesaturatedBlue px-5 py-7 flex items-center rounded-md shadow-2xl;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+  .scrollbar::-webkit-scrollbar-button {
+    @apply hidden;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    @apply rounded-md bg-transparent;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-light-darkGrayishBlue dark:bg-dark-darkGrayishBlue;
+  }
+}
+
+@layer utilities {
+  .todos {
+    @apply rounded-t-md dark:bg-dark-veryDarkDesaturatedBlue;
+  }
+  .todos > * + * {
+    @apply border-t dark:border-dark-veryDarkGrayishBlue;
+  }
+  .todos > *:hover .deleteTodo {
+    @apply opacity-100;
+  }
+
+  .checkTodo {
+    @apply z-10 appearance-none w-6 h-6 sm:h-7 sm:w-7 mr-4 cursor-pointer rounded-full border-2 border-light-lightGrayishBlue dark:border-dark-veryDarkGrayishBlue checked:border-transparent dark:checked:border-transparent;
+  }
+  .checkTodo:checked ~ .checkBg {
+    @apply flex;
+  }
+  .checkTodo:checked ~ .todoTask {
+    @apply line-through text-light-lightGrayishBlue dark:text-dark-darkGrayishBlue;
+  }
+
+  .checkBg {
+    @apply absolute hidden top-1/2 left-5 transform -translate-y-1/2 w-6 h-6 sm:h-7 sm:w-7 justify-center items-center pointer-events-none rounded-full bg-gradient-to-b from-primary-gradientTop to-primary-gradientBottom;
+  }
+  .checkBg > img {
+    @apply w-7/12;
+  }
+
+  .todoTask {
+    @apply flex-1 break-all hyphens-auto text-sm sm:text-base md:text-lg lg:text-xl text-light-veryDarkGrayishBlue dark:text-dark-lightGrayishBlue-base dark:hover:text-dark-lightGrayishBlue-hover cursor-pointer;
+  }
+
+  .deleteTodo {
+    @apply hover-hover:opacity-0 w-6 h-6 sm:h-7 sm:w-7 ml-4 bg-cross bg-no-repeat bg-center;
+  }
+
+  .hyphens-auto {
+    hyphens: auto;
+  }
+
+  .sortable-ghost {
+    @apply bg-gray-200 dark:bg-gray-600;
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo app</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+
+<body
+  class="scrollbar relative min-h-screen w-full font-josefinSans bg-light-veryLightGrayishBlue dark:bg-dark-veryDarkBlue transition delay-100">
+  <div
+    class="absolute top-0 left-0 right-0 bg-mobileLight dark:bg-mobileDark sm:bg-desktopLight sm:dark:bg-desktopDark bg-no-repeat bg-cover bg-left-top h-1/3 min-h-72 max-h-96 md:h-2/5">
+  </div>
+
+  <!-- Wrapper starts -->
+  <div id="wrapper" class="relative min-h-full">
+
+    <div class="flex flex-col mx-auto w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-7/12">
+
+      <!-- Header Starts -->
+      <header class="py-12 flex justify-between items-center space-x-10">
+        <h1 class="uppercase text-white font-bold text-3xl md:text-4xl tracking-widessst">TODO</h1>
+        <button id="changeTheme" class="h-6 md:h-8 w-6 md:w-8 bg-moon dark:bg-sun bg-no-repeat bg-cover bg-center"
+          aria-label="Change Theme"></button>
+      </header>
+      <!-- Header Ends -->
+
+      <!-- Main section starts -->
+      <main>
+
+        <!-- Input Section Starts -->
+        <form id="todoForm" autocomplete="off" class="todoForm">
+
+          <input type="checkbox" class="checkTodo">
+          <div class="checkBg">
+            <img src="./images/icon-check.svg" alt="Check icon">
+          </div>
+          <label for="todoIp" class="sr-only">Enter Todo</label>
+          <input type="text" id="todoIp" placeholder="Create a new todo..."
+            class="flex-1 w-full bg-transparent placeholder-light-darkGrayishBlue dark:placeholder-dark-darkGrayishBlue outline-none text-lg sm:text-xl md:text-2xl text-light-veryDarkGrayishBlue dark:text-dark-lightGrayishBlue-base"
+            required>
+
+        </form>
+        <!-- Input Section Ends -->
+
+        <!-- Tasks Section Starts -->
+        <section class="mt-6 rounded-lg text-light-veryLightGray bg-light-veryLightGray shadow-2xl">
+          <div id="todos" class="todos scrollbar max-h-50 overflow-y-auto">
+          </div>
+
+          <div
+            class="relative border-t dark:border-dark-veryDarkGrayishBlue text-black flex justify-between items-center px-5 py-7 rounded-b-md sm:space-x-5 bg-white dark:bg-dark-veryDarkDesaturatedBlue">
+            <p id="remainingTodos" class="text-sm sm:text-base text-light-darkGrayishBlue"><span></span> items left</p>
+
+            <div
+              class="absolute sm:static left-0 right-0 -bottom-20 px-5 py-4 sm:p-0 rounded-md sm:rounded-none bg-white dark:bg-dark-veryDarkDesaturatedBlue flex-1 flex items-center justify-center space-x-6 font-bold text-light-darkGrayishBlue text-lg sm:text-base md:text-lg shadow-2xl sm:shadow-none">
+              <button id="all"
+                class="hover:text-light-veryDarkGrayishBlue dark:hover:text-dark-lightGrayishBlue-hover">All</button>
+              <button id="active"
+                class="hover:text-light-veryDarkGrayishBlue dark:hover:text-dark-lightGrayishBlue-hover">Active</button>
+              <button id="completed"
+                class="hover:text-light-veryDarkGrayishBlue dark:hover:text-dark-lightGrayishBlue-hover">Completed</button>
+            </div>
+
+            <button id="clrCompleted"
+              class="text-sm sm:text-base text-light-darkGrayishBlue hover:text-light-veryDarkGrayishBlue">
+              Clear Completed
+            </button>
+          </div>
+        </section>
+      </main>
+      <!-- Main section ends -->
+      <footer class="px-5 py-2 absolute left-0 -bottom-32 w-full sm:-bottom-20">
+        <h3 class="text-light-darkGrayishBlue dark:text-dark-veryDarkGrayishBlue text-center text-base sm:text-lg">Drag
+          and drop to reorder list</h3>
+      </footer>
+
+    </div>
+
+  </div>
+  <!-- Wrapper ends -->
+
+
+</body>
+
+</html>
